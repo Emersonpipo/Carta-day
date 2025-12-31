@@ -2,90 +2,69 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Carta para Erica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Especial</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #f3efe8;
-      font-family: Georgia, serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      font-family: Arial, sans-serif;
     }
 
-    .carta {
-      background: #fff;
-      width: 90%;
-      max-width: 360px;
+    .card {
+      background: white;
+      border-radius: 16px;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      max-width: 350px;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
-    .polaroid {
-      background: #fff;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-    }
-
-    .polaroid img {
+    img {
       width: 100%;
-      display: block;
+      border-radius: 12px;
+      margin-bottom: 15px;
     }
 
-    p {
-      font-size: 16px;
-      line-height: 1.4;
-      margin: 10px 0;
-    }
-
-    .botao {
-      margin-top: 15px;
-      padding: 12px 18px;
-      background: #000;
-      color: #fff;
+    button {
+      background: #4a00e0;
+      color: white;
       border: none;
-      border-radius: 30px;
+      padding: 12px 20px;
       font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
+    }
+
+    button:hover {
+      background: #5f2eea;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="carta">
+  <div class="card">
+    <img src="foto.jpg" alt="Foto especial">
 
-    <div class="polaroid">
-      <img src="foto.jpg" alt="Foto">
-    </div>
+    <p>Esta música é para você 💜</p>
 
-    <p>
-      Engraçado como conhecer alguém ainda este ano deixou tudo mais leve.
-      Que 2026 seja o ano de transformar isso em um encontro de verdade.
-    </p>
+    <button onclick="tocarMusica()">▶️ Tocar música</button>
 
-    <button class="botao" onclick="playMusic()">
-      ▶ Tocar música
-    </button>
-
-    <audio id="musica" preload="auto">
+    <audio id="musica">
       <source src="allofme.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
     </audio>
-
-    <p><strong>— Emerson</strong></p>
-
   </div>
 
   <script>
-    function playMusic() {
+    function tocarMusica() {
       const audio = document.getElementById("musica");
-      audio.volume = 1;
       audio.play();
     }
   </script>
