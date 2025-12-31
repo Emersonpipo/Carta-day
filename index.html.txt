@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carta para Erica</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(#f6f1ea,#e9dfd3);
+  font-family:'Georgia', serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* Envelope */
+.envelope{
+  width:340px;
+  height:220px;
+  background:#e4d3b7;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.envelope .flap{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background:#d2bea2;
+  clip-path:polygon(0 0,100% 0,50% 55%);
+  transform-origin:top;
+  transition:transform 1s;
+}
+
+.envelope.open .flap{
+  transform:rotateX(180deg);
+}
+
+/* Carta */
+.carta{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(40px);
+  width:310px;
+  background:#fffdf8;
+  padding:20px;
+  display:none;
+  animation:subir 1.2s forwards;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+/* efeito papel */
+.carta::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 96%, rgba(0,0,0,.05));
+  pointer-events:none;
+}
+
+@keyframes subir{
+  to{ transform:translateX(-50%) translateY(-120px); }
+}
+
+/* Polaroide */
+.polaroid{
+  background:#fff;
+  padding:10px 10px 30px;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  margin-bottom:18px;
+  transform:rotate(-2deg);
+  animation:balanco 4s infinite ease-in-out;
+}
+
+@keyframes balanco{
+  0%,100%{ transform:rotate(-2deg); }
+  50%{ transform:rotate(1deg); }
+}
+
+.polaroid img{
+  width:100%;
+  display:block;
+}
+
+h2{
+  margin-top:0;
+  font-size:20px;
+}
+
+p{
+  font-size:15px;
+  line-height:1.5;
+}
+
+.ass{
+  margin-top:15px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="abrir()">
+  <div class="flap"></div>
+
+  <div class="carta" id="carta">
+    <div class="polaroid">
+      <img src="foto.jpg">
+    </div>
+
+    <h2>Erica,</h2>
+
+    <p>
+      Engraçado como, mesmo no fim do ano, a vida ainda consegue surpreender.
+      Te conhecer ainda em 2025 foi uma dessas surpresas boas — inesperadas e muito bem-vindas.
+    </p>
+
+    <p>
+      Mesmo à distância, tudo fluiu de um jeito leve.
+      Conversas boas, risadas e aquela sensação de que isso aqui é diferente.
+    </p>
+
+    <p>
+      Que o próximo passo seja transformar isso em encontro de verdade.
+      Sem telas, sem distância — só presença.
+    </p>
+
+    <div class="ass">Emerson 🤍</div>
+  </div>
+</div>
+
+<audio id="musica">
+  <source src="allofme.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function abrir(){
+  document.querySelector('.envelope').classList.add('open');
+  document.getElementById('carta').style.display='block';
+  document.getElementById('musica').play();
+}
+</script>
+
+</body>
+</html>
