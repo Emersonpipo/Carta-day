@@ -1,73 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta Especial</title>
+<meta charset="UTF-8">
+<title>Carta 💌</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #8e2de2, #4a00e0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-    }
+<style>
+body {
+  background:#f0f0f0;
+  font-family: Georgia, serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+}
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      max-width: 350px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+/* ENVELOPE */
+.envelope {
+  width:320px;
+  height:220px;
+  background:#c0392b;
+  position:relative;
+  cursor:pointer;
+  border-radius:6px;
+}
 
-    img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
+/* TAMPA */
+.envelope::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:160px solid transparent;
+  border-right:160px solid transparent;
+  border-top:110px solid #e74c3c;
+  transform-origin:top;
+  transition:0.6s;
+}
 
-    button {
-      background: #4a00e0;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+.envelope.aberto::before {
+  transform:rotateX(180deg);
+}
 
-    button:hover {
-      background: #5f2eea;
-    }
-  </style>
+/* CARTA */
+.carta {
+  position:absolute;
+  top:20px;
+  left:10px;
+  width:300px;
+  background:#fff;
+  padding:15px;
+  border-radius:6px;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s;
+}
+
+.envelope.aberto .carta {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* POLAROID */
+.polaroid {
+  background:#fff;
+  padding:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  margin-bottom:10px;
+}
+
+.polaroid img {
+  width:100%;
+}
+
+/* TEXTO */
+.texto {
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+
+/* BOTÃO PLAY */
+.play-btn {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#000;
+  color:#fff;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  z-index:999;
+}
+
+/* PLAYER */
+.player {
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:280px;
+  height:158px;
+  display:none;
+  box-shadow:0 10px 20px rgba(0,0,0,.4);
+}
+
+.player iframe {
+  width:100%;
+  height:100%;
+  border-radius:10px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
-    <img src="foto.jpg" alt="Foto especial">
-
-    <p>Esta música é para você 💜</p>
-
-    <button onclick="tocarMusica()">▶️ Tocar música</button>
-
-    <audio id="musica">
-      <source src="allofme.mp3" type="audio/mpeg">
-      Seu navegador não suporta áudio.
-    </audio>
+<div class="envelope" onclick="pedirSenha()">
+  <div class="carta">
+    <div class="polaroid">
+      <img src="foto.jpg">
+    </div>
+    <div class="texto">
+      Não é exagero.<br>
+      Nem promessa vazia.<br>
+      É só algo simples… mas é de verdade.
+    </div>
   </div>
+</div>
 
-  <script>
-    function tocarMusica() {
-      const audio = document.getElementById("musica");
-      audio.play();
-    }
-  </script>
+<div class="play-btn" onclick="togglePlayer()">▶</div>
+
+<div class="player" id="player">
+  <iframe 
+    src="https://www.youtube.com/embed/450p7goxZqg?autoplay=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+function pedirSenha() {
+  if(document.querySelector('.envelope').classList.contains('aberto')) return;
+
+  const senha = prompt("Senha para abrir 💌");
+
+  if(senha === "bebe") {
+    document.querySelector('.envelope').classList.add('aberto');
+  } else {
+    alert("Senha errada 😅");
+  }
+}
+
+function togglePlayer() {
+  const p = document.getElementById("player");
+  p.style.display = p.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
