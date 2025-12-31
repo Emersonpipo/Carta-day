@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Carta para Erica</title>
+  <meta charset="UTF-8">
+  <title>Carta para Erica</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: #f5f1ea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3efe8;
+      font-family: Georgia, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-.carta {
-  background: #fff;
-  width: 90%;
-  max-width: 360px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  text-align: center;
-}
+    .carta {
+      background: #fff;
+      width: 90%;
+      max-width: 360px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      text-align: center;
+    }
 
-.polaroid {
-  background: #fff;
-  padding: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.
+    .polaroid {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .polaroid img {
+      width: 100%;
+      display: block;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 10px 0;
+    }
+
+    .botao {
+      margin-top: 15px;
+      padding: 12px 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="carta">
+
+    <div class="polaroid">
+      <img src="foto.jpg" alt="Foto">
+    </div>
+
+    <p>
+      Engraçado como conhecer alguém ainda este ano deixou tudo mais leve.
+      Que 2026 seja o ano de transformar isso em um encontro de verdade.
+    </p>
+
+    <button class="botao" onclick="playMusic()">
+      ▶ Tocar música
+    </button>
+
+    <audio id="musica" preload="auto">
+      <source src="allofme.mp3" type="audio/mpeg">
+    </audio>
+
+    <p><strong>— Emerson</strong></p>
+
+  </div>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("musica");
+      audio.volume = 1;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
