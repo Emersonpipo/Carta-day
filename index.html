@@ -1,152 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carta</title>
+  <meta charset="UTF-8">
+  <title>Para você, bebê 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  background: #d6cfc4;
-  font-family: Georgia, serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e6dccd;
+      font-family: "Georgia", serif;
+    }
 
-#senhaBox, #carta {
-  background: #fdfaf4;
-  padding: 32px;
-  max-width: 430px;
-  width: 90%;
-  box-shadow: 0 18px 45px rgba(0,0,0,.3);
-}
+    .senha {
+      background: #fffaf2;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-#carta {
-  display: none;
-  animation: fadeIn 1.2s ease;
-}
+    .senha input {
+      padding: 12px;
+      font-size: 16px;
+      width: 200px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .senha button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      background: #b45f5f;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-input, button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 16px;
-  font-size: 1rem;
-}
+    .carta {
+      display: none;
+      background: #fffaf2;
+      max-width: 700px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      animation: fadeIn 1.5s ease;
+    }
 
-button {
-  background: #8b5e3c;
-  color: #fff;
-  border: none;
-  border-radius: 28px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-h1 {
-  text-align: center;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
+    .carta h1 {
+      text-align: center;
+      color: #7a3b3b;
+      margin-bottom: 25px;
+    }
 
-.foto {
-  display: flex;
-  justify-content: center;
-  margin: 28px 0;
-}
+    .carta p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #3a2f2f;
+      text-align: justify;
+    }
 
-.foto img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border: 6px solid #fdfaf4;
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
-}
+    .foto {
+      text-align: center;
+      margin: 30px 0;
+    }
 
-p {
-  line-height: 1.85;
-  font-size: 1.05rem;
-}
+    .foto img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
 
-.final {
-  text-align: center;
-  margin-top: 45px;
-}
-</style>
+    .botao-musica {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .botao-musica a {
+      text-decoration: none;
+      background: #7a3b3b;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="senhaBox">
-  <p>Digite a senha para abrir a carta</p>
-  <input type="password" id="senha" placeholder="senha">
-  <button onclick="abrirCarta()">Abrir</button>
-</div>
-
-<div id="carta">
-  <h1>Para você, bebê</h1>
-
-  <div class="foto">
-    <img src="foto2.jpg" alt="Foto dela">
+  <div class="senha" id="telaSenha">
+    <h2>💌 Carta especial</h2>
+    <p>Digite a senha para abrir</p>
+    <input type="password" id="senhaInput" placeholder="Senha">
+    <br>
+    <button onclick="abrirCarta()">Abrir</button>
   </div>
 
-  <p>
-    Conhecer você foi um presente inesperado que chegou do nada e ficou.
-    Desde então, meus dias ficaram mais leves, mais animados e cheios daquela
-    expectativa boa que faz a gente sorrir sem perceber.
-  </p>
+  <div class="carta" id="carta">
+    <h1>Para você, bebê ❤️</h1>
 
-  <p>
-    Mesmo com a distância, você conseguiu se fazer presente de um jeito raro.
-    Conversas que fluem, risadas que aparecem fácil e uma vontade crescente
-    de transformar tudo isso em algo ainda mais real.
-  </p>
+    <p>
+      Desde o momento em que te conheci, alguma coisa mudou em mim.
+      Meus dias ficaram mais leves, mais alegres e cheios de expectativa.
+      É incrível como a sua presença, mesmo à distância, consegue trazer
+      um sorriso fácil e uma sensação boa que fica o dia inteiro.
+    </p>
 
-  <p>
-    Que 2026 seja o ano em que a gente finalmente se encontra,
-    faz tudo aquilo que já está guardado na vontade
-    e descobre, lado a lado, o quanto isso pode ser ainda melhor.
-  </p>
+    <p>
+      Conhecer você foi uma das melhores surpresas que a vida me deu.
+      Cada conversa, cada risada e cada troca fizeram tudo ganhar mais cor.
+      Você chegou sem prometer nada e acabou se tornando exatamente aquilo
+      que eu nem sabia que estava esperando.
+    </p>
 
-  <div class="final">
-    <p>Quando terminar de ler, clique abaixo:</p>
+    <p>
+      Espero de verdade que em 2026 a gente possa se encontrar,
+      viver tudo aquilo que hoje fica guardado na vontade,
+      nos planos e nos sorrisos imaginados.
+      Fazer juntos tudo aquilo que a gente sente,
+      sem pressa, mas com intensidade.
+    </p>
 
-    <a
-      href="https://www.youtube.com/watch?v=V4kq2fPibzE"
-      target="_blank"
-      style="
-        display:inline-block;
-        padding:14px 34px;
-        background:#8b5e3c;
-        color:#fff;
-        border-radius:30px;
-        text-decoration:none;
-        font-size:1.05rem;
-      "
-    >
-      🎵 Ouvir a música
-    </a>
+    <p>
+      Essa carta é só um jeito simples de te lembrar
+      do quanto você já é especial pra mim.
+    </p>
 
-    <p style="margin-top:22px;">— Emerson</p>
+    <div class="foto">
+      <img src="foto2.jpg" alt="Você 💕">
+    </div>
+
+    <div class="botao-musica">
+      <a href="https://youtu.be/mi3Zz8q0bck?si=p6s2QuMGKyZRpwCC" target="_blank">
+        ▶ Ouvir nossa música
+      </a>
+    </div>
   </div>
-</div>
 
-<script>
-function abrirCarta() {
-  const senha = document.getElementById("senha").value;
-  if (senha === "bebe") {
-    document.getElementById("senhaBox").style.display = "none";
-    document.getElementById("carta").style.display = "block";
-  } else {
-    alert("Senha incorreta");
-  }
-}
-</script>
+  <script>
+    function abrirCarta() {
+      const senha = document.getElementById("senhaInput").value;
+      if (senha === "bebe") {
+        document.getElementById("telaSenha").style.display = "none";
+        document.getElementById("carta").style.display = "block";
+      } else {
+        alert("Senha incorreta 💔");
+      }
+    }
+  </script>
 
 </body>
 </html>
