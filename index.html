@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
 }
 
-/* TELA DE SENHA */
+/* SENHA */
 #senhaBox {
   background: #f8f4ec;
   padding: 30px;
@@ -29,16 +29,12 @@ body {
   width: 100%;
 }
 
-#senhaBox p {
-  margin-bottom: 15px;
-}
-
 input {
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
@@ -65,25 +61,24 @@ button:active {
   padding: 35px 25px 60px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   line-height: 1.8;
-  animation: fadeIn 1.5s ease;
 }
 
 h1 {
   text-align: center;
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* FOTO */
 .foto {
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  margin: 25px 0;
 }
 
 .foto img {
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   object-fit: cover;
   border-radius: 6px;
   border: 6px solid #fdfaf4;
@@ -96,24 +91,15 @@ p {
 }
 
 .final {
-  margin-top: 40px;
   text-align: center;
+  margin-top: 40px;
 }
 
 .reveal {
   display: none;
   text-align: center;
-  font-size: 1.2rem;
   margin-top: 40px;
-}
-
-iframe {
-  display: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  font-size: 1.2rem;
 }
 </style>
 </head>
@@ -132,7 +118,7 @@ iframe {
   <h1>Para você, bebê</h1>
 
   <div class="foto">
-    <img src="foto.jpg" alt="Foto dela">
+    <img src="foto_nova.jpg" alt="Foto dela">
   </div>
 
   <p>
@@ -144,7 +130,7 @@ iframe {
     Conhecer você fez meus dias ficarem mais leves,
     mais alegres, mais vivos.
     Tem algo em você que traz calma
-    e, ao mesmo tempo, desperta vontade de ir além.
+    e, ao mesmo tempo, vontade de ir além.
   </p>
 
   <p>
@@ -171,19 +157,11 @@ iframe {
     <p>Eu quero descobrir tudo isso com você.</p>
     <p style="margin-top:15px;">— Emerson</p>
   </div>
-
-  <!-- MÚSICA -->
-  <iframe
-    id="musica"
-    src=""
-    allow="autoplay">
-  </iframe>
 </div>
 
 <script>
 function abrirCarta() {
-  const senha = document.getElementById("senha").value;
-  if (senha === "bebe") {
+  if (document.getElementById("senha").value === "bebe") {
     document.getElementById("senhaBox").style.display = "none";
     document.getElementById("carta").style.display = "block";
   } else {
@@ -193,8 +171,10 @@ function abrirCarta() {
 
 function revelar() {
   document.getElementById("finalMsg").style.display = "block";
-  document.getElementById("musica").src =
-    "https://www.youtube.com/embed/4k3n2P3Zp2k?autoplay=1";
+  window.open(
+    "https://www.youtube.com/watch?v=4k3n2P3Zp2k",
+    "_blank"
+  );
 }
 </script>
 
